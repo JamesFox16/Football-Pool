@@ -1,8 +1,17 @@
 package GUI_Manager;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class LoginForm extends JFrame {
+
+    private JTextField usernameTextArea;
+    private JPasswordField passwordTextArea;
+    private JButton signInButton;
+    private JButton forgotPasswordButton;
+    private JPanel loginPanel;
 
     /*
      * The default constructor for the program that will set the title of the program.
@@ -18,6 +27,48 @@ public class LoginForm extends JFrame {
     public void createUI() {
         this.setSize(1000,600);
         this.setVisible(true);
+
+        SpringLayout layout = new SpringLayout();
+
+        // Create the objects for the elements.
+        loginPanel = new JPanel();
+        usernameTextArea = new JTextField("Email", 20);
+        passwordTextArea = new JPasswordField("password", 20);
+        signInButton = new JButton();
+        forgotPasswordButton = new JButton();
+
+        signInButton.setText("Sign In");
+        forgotPasswordButton.setText("Forgot Password");
+
+        // Action listener for the sign in button.
+        signInButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                login(usernameTextArea.getText(), passwordTextArea.getText());
+            }
+        });
+
+        forgotPasswordButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Fill in with forgot password method.
+            }
+        });
+        usernameTextArea.setColumns(20);
+        passwordTextArea.setColumns(20);
+
+        loginPanel.add(usernameTextArea);
+        loginPanel.add(passwordTextArea);
+        //loginPanel.add(signInButton);
+        //loginPanel.add(forgotPasswordButton);
+
+        loginPanel.updateUI();
+
+
+        this.add(loginPanel);
+        this.pack();
+        this.setVisible(true);
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
     /*
