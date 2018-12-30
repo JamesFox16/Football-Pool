@@ -12,6 +12,10 @@ public class LoginForm extends JFrame {
     private JButton signInButton;
     private JButton forgotPasswordButton;
     private JPanel loginPanel;
+    private JPanel leftPanel;
+    private JPanel rightPanel;
+    private JPanel belowPanel;
+
 
     /*
      * The default constructor for the program that will set the title of the program.
@@ -32,6 +36,13 @@ public class LoginForm extends JFrame {
 
         // Create the objects for the elements.
         loginPanel = new JPanel();
+        leftPanel = new JPanel();
+        rightPanel = new JPanel();
+        belowPanel = new JPanel();
+
+        JLabel usernameTextLabel = new JLabel("Username:");
+        JLabel passwordTextLabel = new JLabel("Password:");
+
         usernameTextArea = new JTextField("Email", 20);
         passwordTextArea = new JPasswordField("password", 20);
         signInButton = new JButton();
@@ -54,13 +65,21 @@ public class LoginForm extends JFrame {
                 // Fill in with forgot password method.
             }
         });
-        usernameTextArea.setColumns(20);
-        passwordTextArea.setColumns(20);
+        usernameTextArea.setColumns(30);
+        passwordTextArea.setColumns(30);
 
-        loginPanel.add(usernameTextArea);
-        loginPanel.add(passwordTextArea);
-        //loginPanel.add(signInButton);
-        //loginPanel.add(forgotPasswordButton);
+        leftPanel.add(usernameTextLabel);
+        leftPanel.add(usernameTextArea);
+
+        rightPanel.add(passwordTextLabel);
+        rightPanel.add(passwordTextArea);
+
+        belowPanel.add(signInButton);
+        belowPanel.add(forgotPasswordButton);
+
+        loginPanel.add(leftPanel);
+        loginPanel.add(rightPanel);
+
 
         loginPanel.updateUI();
 
