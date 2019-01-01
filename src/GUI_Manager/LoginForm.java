@@ -91,7 +91,8 @@ public class LoginForm extends JFrame {
      */
     public void login(String username, String password) {
         if (checkValidLogin(username, password)) {
-            //Login code
+            HomePage homePage = new HomePage("Home Page", username);
+            homePage.createUI();
         } else {
             if (!checkValidUsername(username)) {
                 msgbox("Invalid Username.");
