@@ -29,10 +29,9 @@ public class LoginForm extends JFrame {
      * This method will also set the listeners for the UI.
      */
     public void createUI() {
-        this.setSize(1000,600);
-        this.setVisible(true);
+        this.setSize(1200,700);
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        SpringLayout layout = new SpringLayout();
 
         // Create the objects for the elements.
         loginPanel = new JPanel();
@@ -42,6 +41,8 @@ public class LoginForm extends JFrame {
 
         JLabel usernameTextLabel = new JLabel("Username:");
         JLabel passwordTextLabel = new JLabel("Password:");
+
+        loginPanel.setLayout(new BoxLayout(loginPanel, BoxLayout.Y_AXIS));
 
         usernameTextArea = new JTextField("Email", 20);
         passwordTextArea = new JPasswordField("password", 20);
@@ -65,29 +66,24 @@ public class LoginForm extends JFrame {
                 // Fill in with forgot password method.
             }
         });
-        usernameTextArea.setColumns(30);
-        passwordTextArea.setColumns(30);
+        // Set the size of the text fields
+        usernameTextArea.setColumns(35);
+        passwordTextArea.setColumns(35);
 
+        // Add panes to the user interface.
         leftPanel.add(usernameTextLabel);
         leftPanel.add(usernameTextArea);
-
         rightPanel.add(passwordTextLabel);
         rightPanel.add(passwordTextArea);
-
         belowPanel.add(signInButton);
         belowPanel.add(forgotPasswordButton);
-
         loginPanel.add(leftPanel);
         loginPanel.add(rightPanel);
+        loginPanel.add(belowPanel);
 
-
-        loginPanel.updateUI();
-
-
-        this.add(loginPanel);
-        this.pack();
+        // Add the final login pane to the User interface.
+        this.add(loginPanel);;
         this.setVisible(true);
-        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
     /*
@@ -100,7 +96,7 @@ public class LoginForm extends JFrame {
             if (!checkValidUsername(username)) {
                 msgbox("Invalid Username.");
             }
-            if (!checkValidPassword(password)) {
+            else if (!checkValidPassword(password)) {
                 msgbox("Invalid Password.");
             }
         }
