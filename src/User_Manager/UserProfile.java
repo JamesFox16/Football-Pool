@@ -8,6 +8,9 @@ public class UserProfile {
     private int weekPoints;
     private int seasonPoints;
     private int totalPoints;
+    private int weekRank;
+    private int seasonRank;
+    private int totalRank;
 
 
     public UserProfile(User user) {
@@ -42,5 +45,26 @@ public class UserProfile {
      */
     private void setTotalPoints() {
         this.totalPoints = NULL_VALUE;
+    }
+
+    /*
+     * This method will get the week ranking of the user compared to the other users in the database.
+     */
+    private void getUserWeekRank() {
+        this.weekRank = NULL_VALUE;
+    }
+
+    /*
+     * This method will get the season ranking of the user compared to the other user in the database.
+     */
+    private void getUserSeasonRank() {
+        this.seasonRank = NULL_VALUE;
+    }
+
+    /*
+     * This method will get the total (all time) ranking of the user compared to the other users in the database.
+     */
+    private void getUserTotalRank() {
+        this.totalRank = NULL_VALUE;
     }
 }
