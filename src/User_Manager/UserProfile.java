@@ -1,5 +1,8 @@
 package User_Manager;
 
+import javax.swing.*;
+import java.awt.*;
+
 public class UserProfile {
 
     private final int NULL_VALUE = -1;
